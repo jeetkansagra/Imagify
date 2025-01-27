@@ -13,6 +13,7 @@ app.use(cors({
     origin:process.env.FRONTEND_URL || "https://imagify-tau.vercel.app"
 }))
 await connectDB()
+app.options('*', cors()); 
 
 
 app.use('/api/user',userRouter)
