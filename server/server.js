@@ -8,13 +8,10 @@ import imageRouter from './routes/imageRoutes.js';
 const PORT = process.env.PORT || 4000;
 const app = express()
 
-
-app.use(cors({
-    origin: 'https://imagify-dusky-rho.vercel.app', // Frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  }))
-
 app.use(express.json())
+app.use(cors({
+    origin:process.env.FRONTEND_URL
+}))
 await connectDB()
 
 
